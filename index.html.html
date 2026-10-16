@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P N Damodaram — .NET Developer Portfolio</title>
+<meta name="description" content="Portfolio of P N Damodaram, M.Sc (CS) graduate and .NET developer skilled in C#, ASP.NET, ADO.NET and SQL Server.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb;--surface:#ffffff;--text:#14172b;--muted:#5b6078;--line:#e3e6f0;
+  --a1:#5b5bf0;--a2:#06b6d4;--glow:rgba(91,91,240,.18);
+  --grad:linear-gradient(135deg,var(--a1),var(--a2));
+  --head:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b0d1a;--surface:#141730;--text:#eef0ff;--muted:#9aa0c3;--line:#262a4d;--a1:#8b8bff;--a2:#22d3ee;--glow:rgba(139,139,255,.22);}}
+:root[data-theme="dark"]{--bg:#0b0d1a;--surface:#141730;--text:#eef0ff;--muted:#9aa0c3;--line:#262a4d;--a1:#8b8bff;--a2:#22d3ee;--glow:rgba(139,139,255,.22);}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:
+  radial-gradient(600px 400px at 85% -5%,var(--glow),transparent 70%),
+  radial-gradient(500px 400px at -5% 40%,var(--glow),transparent 70%)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--head);line-height:1.15}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--head);font-weight:700;font-size:1.15rem}
+.logo span{color:var(--a1)}
+.links{display:flex;gap:22px;align-items:center;font-size:.92rem;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.tbtn{border:1px solid var(--line);background:var(--surface);color:var(--text);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem}
+@media(max-width:700px){.links a{display:none}}
+
+/* hero */
+.hero{padding:90px 0 70px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:99px;margin-bottom:22px}
+.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:12px}
+.role{font-family:var(--head);font-size:1.3rem;color:var(--muted);margin-bottom:18px;min-height:1.8em}
+.role b{color:var(--a1);font-weight:500}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--a1);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{color:var(--muted);max-width:520px;margin-bottom:28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:12px;font-weight:600;font-size:.95rem;transition:.25s;display:inline-block}
+.btn.p{background:var(--grad);color:#fff;box-shadow:0 10px 30px -10px var(--a1)}
+.btn.p:hover{transform:translateY(-3px)}
+.btn.s{border:1px solid var(--line);background:var(--surface)}
+.btn.s:hover{border-color:var(--a1);transform:translateY(-3px)}
+.avatar{position:relative;justify-self:center;width:min(260px,70vw);aspect-ratio:1}
+.avatar::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(from 0deg,var(--a1),var(--a2),var(--a1));animation:spin 8s linear infinite;filter:blur(2px);opacity:.85}
+.avatar div{position:absolute;inset:0;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:4.2rem;border:6px solid var(--bg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:50px;text-align:center}.hero p.lead{margin-inline:auto}.cta{justify-content:center}.avatar{order:-1}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center}
+.stat strong{display:block;font-family:var(--head);font-size:1.9rem}
+.stat span{font-size:.82rem;color:var(--muted)}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:70px 0}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--a1);font-weight:600;margin-bottom:8px}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:34px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.about p{color:var(--muted);margin-bottom:14px}
+.facts{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;list-style:none}
+.facts li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.facts li:last-child{border:0}
+.facts li span:first-child{color:var(--muted)}
+.facts li span:last-child{text-align:right;font-weight:500}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--a1);box-shadow:0 20px 40px -20px var(--glow)}
+.card h3{font-size:1.1rem;margin-bottom:16px}
+.bar{margin-bottom:14px}
+.bar div.l{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px}
+.track{height:8px;background:var(--line);border-radius:9px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--grad);border-radius:9px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{padding:7px 14px;border-radius:99px;border:1px solid var(--line);font-size:.86rem;background:var(--bg);transition:.2s}
+.chip:hover{background:var(--grad);color:#fff;border-color:transparent}
+
+/* project */
+.project{display:grid;grid-template-columns:.9fr 1.1fr;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.pvis{background:var(--grad);padding:34px;display:flex;flex-direction:column;justify-content:center;gap:12px;color:#fff;min-height:260px}
+.mini{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;font-size:.9rem;backdrop-filter:blur(6px)}
+.mini b{font-family:var(--head)}
+.pbody{padding:34px}
+.pbody .badge{display:inline-block;font-size:.76rem;padding:4px 12px;border-radius:99px;background:var(--glow);color:var(--a1);font-weight:600;margin-bottom:12px}
+.pbody h3{font-size:1.5rem;margin-bottom:12px}
+.pbody p{color:var(--muted);margin-bottom:18px;font-size:.96rem}
+@media(max-width:800px){.project{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ti{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.ti::before{content:"";position:absolute;left:-30px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--grad);border:3px solid var(--bg)}
+.ti h3{font-size:1.1rem}
+.ti p{color:var(--muted);font-size:.9rem}
+.yr{font-size:.82rem;color:var(--muted);text-align:right}
+.pct{font-family:var(--head);font-size:1.5rem;font-weight:700}
+
+/* soft */
+.soft{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.soft div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center;font-weight:500;transition:.3s}
+.soft div:hover{transform:translateY(-4px);border-color:var(--a2)}
+.soft i{display:block;font-style:normal;font-size:1.6rem;margin-bottom:6px}
+
+/* contact */
+.contact{background:var(--grad);border-radius:26px;padding:56px 30px;text-align:center;color:#fff}
+.contact h2{color:#fff;margin-bottom:12px}
+.contact p{opacity:.9;max-width:520px;margin:0 auto 28px}
+.cl{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cl a{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:12px 22px;border-radius:12px;font-weight:500;transition:.25s;backdrop-filter:blur(6px)}
+.cl a:hover{background:#fff;color:#4338ca;transform:translateY(-3px)}
+footer{text-align:center;padding:34px 0 40px;color:var(--muted);font-size:.85rem}
+
+.rv{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">PND<span>.</span></a>
+  <div class="links">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#project">Project</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    <button class="tbtn" id="theme" aria-label="Toggle theme">◐</button>
+  </div>
+</div></nav>
+
+<main id="top" class="wrap">
+
+  <header class="hero">
+    <div>
+      <div class="tag"><span class="dot"></span> Open to opportunities · Tamil Nadu, India</div>
+      <h1>Hi, I'm <span class="grad">P N Damodaram</span></h1>
+      <div class="role">I build <b id="typed"></b><span class="cursor"></span></div>
+      <p class="lead">M.Sc (Computer Science) graduate with a hands-on foundation in the Microsoft .NET stack. I turn real-world requirements into clean, database-driven web applications, and I'm eager to grow with a team that values learning and delivery.</p>
+      <div class="cta">
+        <a class="btn p" href="#contact">Let's Talk</a>
+        <a class="btn s" href="#project">View My Project</a>
+      </div>
+    </div>
+    <div class="avatar"><div class="grad">PD</div></div>
+  </header>
+
+  <div class="stats rv">
+    <div class="stat"><strong class="grad" data-n="75" data-s="%">0</strong><span>M.Sc (CS) Score</span></div>
+    <div class="stat"><strong class="grad" data-n="5">0</strong><span>.NET Core Skills</span></div>
+    <div class="stat"><strong class="grad" data-n="3">0</strong><span>Languages Spoken</span></div>
+    <div class="stat"><strong class="grad" data-n="1">0</strong><span>Team-Led Project</span></div>
+  </div>
+
+  <section id="about" class="rv">
+    <div class="eyebrow">About me</div>
+    <h2>Driven, disciplined &amp; always learning</h2>
+    <div class="about">
+      <div>
+        <p>I'm a computer science postgraduate (M.Sc, 2017, S.V. University) who enjoys building practical business software with C#, ASP.NET and SQL Server.</p>
+        <p>I led my final-year team to deliver a web-based accounting application end to end, from planning and coordination to deployment. That experience taught me how to combine technical work with teamwork.</p>
+        <p>My goal is simple: to join an organization that gives me the chance to prove my skills, improve my efficiency and contribute to its growth.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Name</span><span>P N Damodaram</span></li>
+        <li><span>Focus</span><span>.NET Web Development</span></li>
+        <li><span>Languages</span><span>English · Tamil · Telugu</span></li>
+        <li><span>Hobbies</span><span>Singing · Cricket</span></li>
+        <li><span>Location</span><span>Tamil Nadu, India</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="rv">
+    <div class="eyebrow">Skills</div>
+    <h2>Tools I work with</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Technical proficiency</h3>
+        <div class="bar"><div class="l"><span>C# .NET</span><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="l"><span>ASP.NET</span><span>82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+        <div class="bar"><div class="l"><span>SQL Server</span><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="l"><span>ADO.NET</span><span>78%</span></div><div class="track"><div class="fill" data-w="78"></div></div></div>
+        <div class="bar"><div class="l"><span>HTML &amp; CSS</span><span>75%</span></div><div class="track"><div class="fill" data-w="75"></div></div></div>
+      </div>
+      <div class="card">
+        <h3>Technology stack</h3>
+        <div class="chips">
+          <span class="chip">.NET Framework 4.5</span><span class="chip">ASP.NET</span><span class="chip">C#.NET</span><span class="chip">ADO.NET</span><span class="chip">SQL Server</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Windows</span>
+        </div>
+        <h3 style="margin-top:26px">Also comfortable with</h3>
+        <div class="chips"><span class="chip">Computer Basics</span><span class="chip">Fast Typing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project" class="rv">
+    <div class="eyebrow">Academic project</div>
+    <h2>Featured work</h2>
+    <div class="project">
+      <div class="pvis">
+        <div class="mini"><span>Income</span><b>+ ₹ Categories</b></div>
+        <div class="mini"><span>Expenses</span><b>− ₹ Categories</b></div>
+        <div class="mini"><span>Balance Sheet</span><b>Auto-reviewed</b></div>
+      </div>
+      <div class="pbody">
+        <span class="badge">Role: Team Leader</span>
+        <h3>Accounting Review: Income Statements &amp; Balance Sheets</h3>
+        <p>A web-based Income and Expenses system that lets users record and categorize their daily spending and income in multiple ways. It simplifies administrative work and coordination, making every aspect of income and expense management easy to handle.</p>
+        <div class="chips"><span class="chip">ASP.NET</span><span class="chip">C#</span><span class="chip">ADO.NET</span><span class="chip">SQL Server</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="rv">
+    <div class="eyebrow">Education</div>
+    <h2>Academic journey</h2>
+    <div class="tl">
+      <div class="ti"><div><h3>M.Sc (Computer Science)</h3><p>Sheshachala Degree &amp; PG College, Puttur · S.V. University, Tirupati</p></div><div class="yr">2017<div class="pct grad">75%</div></div></div>
+      <div class="ti"><div><h3>B.Sc (Computer Science)</h3><p>Sheshachala Degree College, Puttur · S.V. University, Tirupati</p></div><div class="yr">2011<div class="pct grad">68%</div></div></div>
+      <div class="ti"><div><h3>Higher Secondary (HSC)</h3><p>Government Higher Secondary School, Pallipat</p></div><div class="yr">2008<div class="pct grad">55%</div></div></div>
+      <div class="ti"><div><h3>SSLC</h3><p>Government High School, Nediyam</p></div><div class="yr">2006<div class="pct grad">72%</div></div></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="eyebrow">Strengths</div>
+    <h2>Personal &amp; professional skills</h2>
+    <div class="soft">
+      <div><i>🎯</i>Self-disciplined</div><div><i>💪</i>Hardworking</div><div><i>🤝</i>Team player</div><div><i>⏰</i>Punctual</div><div><i>⚡</i>Quick learner</div>
+    </div>
+  </section>
+
+  <section id="contact" class="rv">
+    <div class="contact">
+      <h2>Let's build something together</h2>
+      <p>I'm looking for an opportunity to apply my .NET skills and grow professionally. Reach out. I'd love to hear from you.</p>
+      <div class="cl">
+        <a href="mailto:damodaram.pinupolu@gmail.com">✉ damodaram.pinupolu@gmail.com</a>
+        <a href="tel:+917013278631">☎ +91 70132 78631</a>
+        <a href="tel:+919655448864">☎ +91 96554 48864</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="y"></span> P N Damodaram · Designed with care</footer>
+
+<script>
+// theme toggle
+const root=document.documentElement,tb=document.getElementById('theme');
+tb.onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+};
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// typing effect
+const words=['.NET web applications','C# &amp; ASP.NET solutions','SQL Server databases','clean, reliable software'];
+const el=document.getElementById('typed');let w=0,c=0,del=false;
+const dec=s=>{const t=document.createElement('textarea');t.innerHTML=s;return t.value};
+const list=words.map(dec);
+(function tick(){
+  const cur=list[w];
+  el.textContent=cur.slice(0,c);
+  if(!del&&c===cur.length){del=true;return setTimeout(tick,1500)}
+  if(del&&c===0){del=false;w=(w+1)%list.length}
+  c+=del?-1:1;setTimeout(tick,del?35:70);
+})();
+
+// reveal + counters + skill bars
+const count=e=>{const n=+e.dataset.n,s=e.dataset.s||'';let i=0;
+  const t=setInterval(()=>{i+=Math.max(1,Math.ceil(n/40));if(i>=n){i=n;clearInterval(t)}e.textContent=i+s},30)};
+const io=new IntersectionObserver(es=>es.forEach(x=>{
+  if(!x.isIntersecting)return;
+  x.target.classList.add('in');
+  x.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+  x.target.querySelectorAll('[data-n]').forEach(count);
+  io.unobserve(x.target);
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
